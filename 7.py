@@ -1,6 +1,8 @@
 from utils import get_input
 import re
 import time
+import sys
+
 
 instructions = """123 -> x
 456 -> y
@@ -22,6 +24,8 @@ for i in instructions:
     else:
         value, wire = assignment_match.groups()
         wires[wire] = value
+
+wires['b'] = '46065'
 
 
 def resolve(wires):
