@@ -30,6 +30,13 @@ for i in instructions:
 
 roster = graph.keys()
 
+for each in roster:
+    graph[each]['me'] = 0
+
+graph['me'] = {k: 0 for k in roster}
+
+roster = graph.keys()
+
 best = None
 for p in permutations(roster):
     change = 0
@@ -39,5 +46,6 @@ for p in permutations(roster):
         right = p[i + 1] if i + 1 < len(p) else p[0]
         change += graph[sub][left] + graph[sub][right]
     if best is None or best < change:
+        print p
         best = change
 print best
