@@ -3,7 +3,7 @@ import hashlib
 
 def hex_hash(s):
     h = hashlib.md5()
-    h.update(s)
+    h.update(s.encode())
     return h.hexdigest()
 
 zeros = '0' * 6
@@ -16,4 +16,4 @@ while True:
     r = hex_hash(s)
     if r.startswith(zeros):
         break
-print num, s
+print(num, s)

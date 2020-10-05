@@ -14,4 +14,4 @@ for n, c in enumerate(address):
     if current_floor < 0 and basement_char is None:
         basement_char = n + 1
 
-print current_floor, basement_char
+print(current_floor, basement_char)

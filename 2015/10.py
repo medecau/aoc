@@ -19,4 +19,4 @@ for i in range(50):
     s = desc(s)
 
 result = ''.join(str(c) for c in s)
-print len(result)
+print(len(result))

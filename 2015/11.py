@@ -37,8 +37,8 @@ def incr(s):
     return s
 
 next_pass = incr('cqjxjnds')
-print next_pass
+print(next_pass)
 next_pass = incr(next_pass)
-print next_pass
+print(next_pass)
 
 

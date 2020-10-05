@@ -1,5 +1,6 @@
+from functools import reduce
 import itertools
-from utils import get_input
+from utils import get_input, lmap
 
 dimensions_list = get_input('2.txt').split('\n')
 
@@ -14,10 +15,10 @@ for dims in dimensions_list:
 
     sides = list(itertools.combinations(dims, 2))
 
-    areas = map(lambda side: side[0] * side[1], sides)
+    areas = lmap(lambda side: side[0] * side[1], sides)
     areas += areas
     areas.append(areas[0])
 
     total_area += sum(areas)
 
-print total_area, total_ribon
+print(total_area, total_ribon)

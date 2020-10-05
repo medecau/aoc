@@ -16,4 +16,4 @@ nice_strings = (s for s in nice_strings if p3.match(s) is None)
 """
 nice_strings = (s for s in strings if p4.match(s) is not None)
 nice_strings = (s for s in nice_strings if p5.match(s) is not None)
-print len(list(nice_strings))
+print(len(list(nice_strings)))

@@ -46,6 +46,6 @@ for p in permutations(roster):
         right = p[i + 1] if i + 1 < len(p) else p[0]
         change += graph[sub][left] + graph[sub][right]
     if best is None or best < change:
-        print p
+        print(p)
         best = change
-print best
+print(best)

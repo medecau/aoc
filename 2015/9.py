@@ -29,4 +29,4 @@ for p in permutations:
         current += int(distance)
     distances.append(current)
 
-print min(distances), max(distances)
+print(min(distances), max(distances))

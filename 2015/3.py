@@ -17,7 +17,7 @@ for move in moves:
 
 houses = ['%dx%d' % h for h in log]
 unique_houses = set(houses)
-print len(unique_houses)
+print(len(unique_houses))
 
 
 santa = dict(x=0, y=0, log=[tuple([0, 0])])
@@ -40,4 +40,4 @@ for move in moves:
 santa_houses = ['%dx%d' % h for h in santa['log']]
 robot_houses = ['%dx%d' % h for h in robot['log']]
 unique_houses = set(santa_houses) | set(robot_houses)
-print len(unique_houses)
+print(len(unique_houses))

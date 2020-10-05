@@ -15,4 +15,4 @@ while any(type(e) in (dict, list) for e in o):
         else:
             i += 1
 o = [e for e in o if type(e) in (int, float)]
-print sum(o)
+print(sum(o))

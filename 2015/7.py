@@ -72,13 +72,13 @@ def resolve(wires):
 
 def show(wires):
     for w, v in wires.items():
-        print '%s: %s' % (w, v)
+        print('%s: %s' % (w, v))
 
 
 show(wires)
 c = 0
 while resolve(wires):
     c += 1
-    print c
+    print(c)
     # show(wires)
-print wires['a']
+print(wires['a'])
