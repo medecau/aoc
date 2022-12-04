@@ -1,8 +1,8 @@
-from utils import get_input
 import re
-import time
 import sys
+import time
 
+import utils
 
 instructions = """123 -> x
 456 -> y
@@ -11,10 +11,12 @@ i OR f -> e
 x LSHIFT 2 -> f
 y RSHIFT 2 -> g
 NOT x -> h
-NOT y -> i""".split('\n')
-instructions = get_input('7.txt').split('\n')
-instruction_pattern = re.compile(r'(.+) -> (\w+)$')
-gate_pattern = re.compile(r'(?:^(\w+)\s)?([A-Z]+) (\w+)')
+NOT y -> i""".split(
+    "\n"
+)
+instructions = utils.get_lines(__file__)
+instruction_pattern = re.compile(r"(.+) -> (\w+)$")
+gate_pattern = re.compile(r"(?:^(\w+)\s)?([A-Z]+) (\w+)")
 
 wires = dict()
 for i in instructions:
@@ -25,7 +27,7 @@ for i in instructions:
         value, wire = assignment_match.groups()
         wires[wire] = value
 
-wires['b'] = '46065'
+wires["b"] = "46065"
 
 
 def resolve(wires):
@@ -44,24 +46,25 @@ def resolve(wires):
             if right.isalpha() and right in wires:
                 right = wires[right]
 
-            if operator == 'NOT':
+            if operator == "NOT":
                 if type(right) is int or right.isdigit():
-                    wires[w] = 0xffff ^ int(right)
+                    wires[w] = 0xFFFF ^ int(right)
                     changed = True
 
-            elif operator in ('AND', 'OR'):
-                if (type(left) is int or left.isdigit()) and \
-                   (type(right) is int or right.isdigit()):
-                    if params[1] == 'AND':
+            elif operator in ("AND", "OR"):
+                if (type(left) is int or left.isdigit()) and (
+                    type(right) is int or right.isdigit()
+                ):
+                    if params[1] == "AND":
                         wires[w] = int(left) & int(right)
                         changed = True
                     else:
                         wires[w] = int(left) | int(right)
                         changed = True
 
-            elif operator in ('LSHIFT', 'RSHIFT'):
+            elif operator in ("LSHIFT", "RSHIFT"):
                 if type(left) is int or left.isdigit():
-                    if params[1] == 'LSHIFT':
+                    if params[1] == "LSHIFT":
                         wires[w] = int(left) << int(right)
                         changed = True
                     else:
@@ -72,7 +75,7 @@ def resolve(wires):
 
 def show(wires):
     for w, v in wires.items():
-        print('%s: %s' % (w, v))
+        print("%s: %s" % (w, v))
 
 
 show(wires)
@@ -81,4 +84,4 @@ while resolve(wires):
     c += 1
     print(c)
     # show(wires)
-print(wires['a'])
+print(wires["a"])

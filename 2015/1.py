@@ -1,14 +1,13 @@
-from utils import get_input
+import utils
 
-
-address = get_input('1.txt')
+address = utils.get_input(__file__)
 current_floor = 0
 basement_char = None
 
 for n, c in enumerate(address):
-    if c == '(':
+    if c == "(":
         current_floor += 1
-    elif c == ')':
+    elif c == ")":
         current_floor -= 1
 
     if current_floor < 0 and basement_char is None:

@@ -1,6 +1,5 @@
 import sys
 
-
 file_name = sys.argv[1]
 two_counter = 0
 three_counter = 0

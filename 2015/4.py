@@ -6,8 +6,9 @@ def hex_hash(s):
     h.update(s.encode())
     return h.hexdigest()
 
-zeros = '0' * 6
-key = 'ckczppom'
+
+zeros = "0" * 6
+key = "ckczppom"
 
 num = 0
 while True:

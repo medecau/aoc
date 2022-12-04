@@ -14,9 +14,10 @@ def desc(i):
     yield str(cntr)
     yield p
 
-s = '3113322113'
+
+s = "3113322113"
 for i in range(50):
     s = desc(s)
 
-result = ''.join(str(c) for c in s)
+result = "".join(str(c) for c in s)
 print(len(result))
