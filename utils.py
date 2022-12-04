@@ -12,15 +12,17 @@ def compose(*functions):
     return composed
 
 
-lmap = compose(list, map)
+lmap = compose(map, list)
 
 
-def get_input(fn):
-    return open(fn).read()
-
-
-def get_input_basename(filename):
-    dirname, basename = os.path.split(filename)
+def get_input(script_file):
+    dirname, basename = os.path.split(script_file)
     name, _ = os.path.splitext(basename)
-    inputbasename = name + ".txt"
-    return os.path.join(dirname, inputbasename)
+    inputbasename = f"{name}.txt"
+    input_path = os.path.join(dirname, inputbasename)
+
+    return open(input_path).read()
+
+
+def get_lines(script_file):
+    return get_input(script_file).split("\n")
